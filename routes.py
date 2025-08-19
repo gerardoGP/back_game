@@ -8,7 +8,7 @@ from .game import (
 )
 
 bp = Blueprint('routes', __name__)
-@bp.route('/test', methods=['GET'])
+@bp.route('/', methods=['GET'])
 def test():
     return "<h1>Test</h1>"
 

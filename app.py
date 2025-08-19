@@ -10,4 +10,4 @@ CORS(app, supports_credentials=True) # supports_credentials=True es necesario pa
 app.register_blueprint(bp)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
