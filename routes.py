@@ -10,9 +10,7 @@ from .game import (
 bp = Blueprint('routes', __name__)
 @bp.route('/test', methods=['GET'])
 def test():
-    return jsonify({
-        "status": "ok"
-    })
+    return "<h1>Test</h1>"
 
 @bp.route('/initialize', methods=['POST'])
 def initialize_game():
