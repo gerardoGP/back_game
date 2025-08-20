@@ -9,17 +9,17 @@ from .game import (
 
 bp = Blueprint('routes', __name__)
 
-@bp.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def test():
     return "<h1>Test</h1>"
 
-@bp.route('/initialize', methods=['POST'])
+@app.route('/initialize', methods=['POST'])
 def initialize_game():
     """Crea un nuevo estado de juego y lo guarda en la sesión."""
     session['game_state'] = get_initial_state()
     return jsonify({"success": True, "message": "Game state initialized."})
 
-@bp.route('/gameState', methods=['GET'])
+@app.route('/gameState', methods=['GET'])
 def get_game_state():
     """Obtiene el estado actual del juego desde la sesión."""
     # Si no hay estado en la sesión, crea uno nuevo.
@@ -33,7 +33,7 @@ def get_game_state():
         "paylines": PAYLINES
     })
 
-@bp.route('/spin', methods=['POST'])
+@app.route('/spin', methods=['POST'])
 def handle_spin():
     if 'game_state' not in session:
         return jsonify({"error": "El juego no ha sido inicializado"}), 400
@@ -133,11 +133,11 @@ def handle_spin():
 
     return jsonify(response_data)
 
-@bp.route('/paytable', methods=['GET'])
+@app.route('/paytable', methods=['GET'])
 def get_paytable():
     return jsonify(PAYTABLE)
 
-@bp.route('/buyBonus', methods=['POST'])
+@app.route('/buyBonus', methods=['POST'])
 def buy_bonus():
     if 'game_state' not in session:
         return jsonify({"error": "El juego no ha sido inicializado"}), 400
