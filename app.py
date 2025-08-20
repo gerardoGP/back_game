@@ -3,7 +3,7 @@
 # from .routes import bp
 import random
 from flask import Flask, jsonify, request, session
-from .game import (
+from game import (
     get_initial_state, ALLOWED_BETS, PAYLINES, BASE_FREE_SPINS,
     REELS, ROWS, REEL_STRIP, BONUS_REEL_STRIP, WILD_SYMBOL,
     FREE_SPINS_SCATTER_SYMBOL, PAYTABLE,
